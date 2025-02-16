@@ -109,17 +109,7 @@ def Train(domain_ids, model):
     val_dataloader = create_dataloader(val_qadata, "train", 10)
 
     ############################ Data preparation   #####################################
-###设置 n_train_epochs ###
 
-    if not args.unbound and args.seq_train_type != "multitask":
-        # n_train_epochs = TASK_DICT[tasks[0]]["n_train_epochs"]
-        n_train_epochs = DOMAIN_DICT[domains[0]]["n_train_epochs"]
-        # print("args.n_train_epochs:", args.n_train_epochs)
-        print("n_train_epochs:", n_train_epochs)
-        # n_train_epochs = args.n_train_epochs[domains[0]]
-    else:
-        n_train_epochs = args.n_train_epochs['_'.join(domains)]
-    n_train_optimization_steps = len(train_qadata) * n_train_epochs
 
     logger.info('len of train dataset: {} , max train batch size {} , num of opt steps: {}'.format(
         len(train_qadata), max_train_batch_size, n_train_optimization_steps))
