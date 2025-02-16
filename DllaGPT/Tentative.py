@@ -125,11 +125,7 @@ def Train(domain_ids, model):
     ]
 
 
-    ############################ Set Optimizer #####################################
-    print("args.seq_train_type in REG_TYPE_KEYS:", args.seq_train_type in REG_TYPE_KEYS)
-    print("REG_TYPE_KEYS:", REG_TYPE_KEYS)
-    optimizer = FP16_Optimizer(optimizer, static_loss_scale=None, dynamic_loss_scale=True,
-                                   dynamic_loss_args={'scale_window': 100, 'min_scale': 1, 'delayed_shift': 2})
+
 
     ############################ Set Optimizer and scheduler #####################################
     print("optimizer:", optimizer)
