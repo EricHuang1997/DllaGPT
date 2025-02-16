@@ -202,7 +202,7 @@ def init_logging(filename):
 args, MODEL_CONFIG, MODEL_CLASS, TOKENIZER, CONFIG_CLASS, SPECIAL_TOKEN_IDS, SPECIAL_TOKENS, DATA_ATTRS, TOKENS_WEIGHT = parse_args()
 
 
-DOMAIN_DICT = {
+DOMAIN_DIC = {
     "tweets":{
         "train":os.path.join(args.data_dir,"tweets-train.json"),
         "eval":os.path.join(args.data_dir,"tweets-val.json"),
@@ -210,14 +210,6 @@ DOMAIN_DICT = {
         # "n_train_epochs": args.n_train_epochs
         "n_train_epochs": 3
     },
-    "laptop":{
-            "train":os.path.join(args.data_dir,"laptop-train.json"),
-            # "train":os.path.join(args.data_dir,"._dbpedia_to_squad-train-v2.0.json"),
-            "eval":os.path.join(args.data_dir,"laptop-val.json"),
-            "test":os.path.join(args.data_dir,"laptop-test.json"),
-            # "n_train_epochs": args.n_train_epochs
-            "n_train_epochs": 5
-        },
     "restaurant":{
         "train":os.path.join(args.data_dir,"restaurant-train.json"),
         "eval":os.path.join(args.data_dir,"restaurant-val.json"),
