@@ -102,13 +102,6 @@ def Train(domain_ids, model):
 
 
     ############################ Data preparation   #####################################
-
-
-    train_extra_data = [] # only configuration use
-    print("extra data before QAdataset:", train_extra_data)
-
-    train_qadata = QADataset(train_dataset, "train", SPECIAL_TOKEN_IDS[domains[0]], train_extra_data)
-    val_qadata = QADataset(val_dataset, "train", SPECIAL_TOKEN_IDS[domains[0]], [])
     print("train_extra_data size:", len(train_extra_data))
     max_train_batch_size = max(len(train_qadata) // args.min_n_steps, args.min_batch_size)
     # train_dataloader = create_dataloader(train_qadata, "train", max_train_batch_size)
