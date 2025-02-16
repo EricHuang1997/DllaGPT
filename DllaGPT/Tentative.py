@@ -115,7 +115,6 @@ def Train(domain_ids, model):
         len(train_qadata), max_train_batch_size, n_train_optimization_steps))
 
 
-
     param_optimizer = list(model.named_parameters())
     no_decay = ['bias', 'LayerNorm.bias', 'LayerNorm.weight']
     optimizer_grouped_parameters = [
@@ -123,8 +122,6 @@ def Train(domain_ids, model):
          'weight_decay': args.weight_decay},
         {'params': [p for n, p in param_optimizer if any(nd in n for nd in no_decay)], 'weight_decay': 0.0}
     ]
-
-
 
 
     ############################ Set Optimizer and scheduler #####################################
@@ -149,7 +146,7 @@ def Train(domain_ids, model):
         prev_domain = args.domains[domain_ids[0] - 1]
         regularizer = REG_TYPES[args.seq_train_type](model, [copy_train_dataloader], domains[0],
                                                      prev_domain)
-        regularizer.task_start_do()
+        
         print("start regularizer")
         print("regularizer.dataloaders:", regularizer.dataloaders)
     ############################ Set Loss Function   #####################################
@@ -207,7 +204,7 @@ def Train(domain_ids, model):
             # transfer original data to GRU
             cqa[0] = cqa[0].cuda()
             Y[0] = Y[0].cuda()
-            gen_X[0] = gen_X[0].cuda()
+            
             gen_Y[0] = gen_Y[0].cuda()
 
 
