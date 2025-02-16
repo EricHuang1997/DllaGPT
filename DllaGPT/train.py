@@ -150,11 +150,6 @@ def train(task_ids, model):
 
             n_inputs = sum(_cqa.shape[0] for _cqa in cqa)
 
-            for i in range(len(cqa)):
-                cqa[i] = (cqa[i].to(args.device_ids[i]),)
-                Y[i] = Y[i].to(args.device_ids[i])
-                gen_X[i] = (gen_X[i].to(args.device_ids[i]),)
-                gen_Y[i] = gen_Y[i].to(args.device_ids[i])
 
             losses = get_losses(parallel_model, cqa, Y, gen_X, gen_Y, train_loss_fct)
             loss = sum(losses)
