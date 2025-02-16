@@ -62,7 +62,6 @@ def parse_args():
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--seq_train_type", type=str, default="lll", choices=["lll","finetune","multitask","mas","ewc","gem","cross_domain"])
     parser.add_argument("--tasks", nargs='+', default=["squad2"])
-    parser.add_argument("--domains", nargs='+', default=["laptop", "restaurant", "tweets", "finance","laptop-multi", "restaurant-multi"])
     # parser.add_argument("--domains", nargs='+', default=["laptop", "restaurant"])
     parser.add_argument("--skip_tasks", nargs='+')
     parser.add_argument("--temperature_lm", type=float, default=1.0)
