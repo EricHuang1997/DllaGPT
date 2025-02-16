@@ -1,0 +1,2 @@
+export DATA_DIR='../Data_Directory'
+export MODEL_ROOT_DIR='../Model_Directory'
