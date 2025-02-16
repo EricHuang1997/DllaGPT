@@ -137,16 +137,8 @@ def Train(domain_ids, model):
 
     ############################ Set Optimizer #####################################
     print("args.seq_train_type in REG_TYPE_KEYS:", args.seq_train_type in REG_TYPE_KEYS)
-
-    if args.seq_train_type in REG_TYPE_KEYS:
-        optimizer = Weight_Regularized_AdamW(optimizer_grouped_parameters, lr=args.learning_rate, eps=args.adam_epsilon)
-    else:
-        optimizer = AdamW(optimizer_grouped_parameters, lr=args.learning_rate, eps=args.adam_epsilon)
-    if not args.fp32:
-        optimizer = AdamW(optimizer_grouped_parameters, lr=args.learning_rate, eps=args.adam_epsilon)
-        print("args.seq_train_type:", args.seq_train_type)
-        print("REG_TYPE_KEYS:", REG_TYPE_KEYS)
-        optimizer = FP16_Optimizer(optimizer, static_loss_scale=None, dynamic_loss_scale=True,
+    print("REG_TYPE_KEYS:", REG_TYPE_KEYS)
+    optimizer = FP16_Optimizer(optimizer, static_loss_scale=None, dynamic_loss_scale=True,
                                    dynamic_loss_args={'scale_window': 100, 'min_scale': 1, 'delayed_shift': 2})
 
     ############################ Set Optimizer and scheduler #####################################
