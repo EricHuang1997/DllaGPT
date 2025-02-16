@@ -185,7 +185,7 @@ def Train(domain_ids, model):
     n = 0
 
     for ep in range(n_train_epochs):
-        cum_loss, cum_qa_loss, cum_lm_loss, cur_n_inputs = 0, 0, 0, 0
+        
         print("train_dataloader:", train_dataloader)
         for n_steps, (_, _, cqa, _, Y, gen_X, gen_Y) in enumerate(train_dataloader):
             print("n:", n)
