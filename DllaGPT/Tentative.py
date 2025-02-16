@@ -337,7 +337,7 @@ if __name__ == '__main__':
         train_step = 0
         for domain_id in range(len(args.domains)):
             print("trainstep:", train_step)
-            model = Train([domain_id], model)
+            model = Train([domain], model)
             train_step += 1
         # Train(list(range(len(args.domains))), model)
     else:
